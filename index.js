@@ -8,9 +8,10 @@ import { usersRouter } from "./router/login.js";
 import cors from 'cors';
 dotenv.config();
 const app=express();
+const PORT=process.env.PORT;
 app.use(cors());
 app.use(express.json());
-const PORT=process.env.PORT;
+
 const MONGO_URL=process.env.MONGO_URL;
 async function createConnection(){
  const client=new MongoClient(MONGO_URL);
