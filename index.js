@@ -5,10 +5,10 @@ import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import {getById,deleteById,getByQuery,insertUsers} from "./helper.js";
 import { usersRouter } from "./router/login.js";
-
+import cors from 'cors';
 dotenv.config();
 const app=express();
-
+app.use(cors());
 app.use(express.json());
 const PORT=process.env.PORT;
 const MONGO_URL=process.env.MONGO_URL;
