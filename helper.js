@@ -8,14 +8,14 @@ async function insertUsers(users) {
   }
   async function updateUser(id,user){
     return client
-      .db("resetpassword")
+      .db("test")
       .collection("login")
       .updateOne({_id:ObjectId(id)},{$set:user});
   }
   
   async function getByQuery(users) {
     return client
-      .db("resetpassword")
+      .db("test")
       .collection("login")
       .find(users)
       .toArray();
@@ -23,14 +23,14 @@ async function insertUsers(users) {
   
   async function deleteById(id) {
     return client
-      .db("resetpassword")
+      .db("test")
       .collection("login")
       .deleteMany({ _id: ObjectId(id) });
   }
   
   async function getById(id) {
     return client
-      .db("resetpassword")
+      .db("test")
       .collection("login")
       .findOne({ _id: ObjectId(id) });
   }

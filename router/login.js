@@ -1,6 +1,7 @@
 
 import {getById,deleteById,getByQuery,updateUser,insertUsers} from "../helper.js";
 import express from "express";
+import { authUser, registeredUser } from "../usercontrols.js";
 const router=express.Router();
 router
 .route("/:id").get(async(request,response)=>{
@@ -37,12 +38,10 @@ router
     response.status(404).send({message:"user not found"});
   })
   
-  .post(async(request,response)=>{
-     const users=request.body;
-     console.log(users);
-     const alluser= await insertUsers(users);
-     response.send(alluser);
-  })
+  .post(registeredUser)
+
+  router.route("/login").post(authUser);
+    
 
   export const usersRouter=router;
  
